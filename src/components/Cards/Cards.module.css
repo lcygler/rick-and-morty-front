@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: rgba(57, 62, 70, 0.9); /* #393e46 */
+  padding: 2em;
+  width: 80%;
+  margin: auto;
+  border-radius: 50px;
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
+}

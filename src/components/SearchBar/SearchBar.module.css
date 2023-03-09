@@ -1,7 +1,8 @@
-.bar {
+.container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  margin-right: 2em;
 }
 
 .searchInput {
@@ -14,10 +15,9 @@
   padding: 0 10px;
 }
 
-.searchButton {
-  background-image: url(../../img/search-button.jpeg);
+.searchButton,
+.randomButton {
   background-repeat: no-repeat;
-  background-size: contain;
   background-position: center;
   font-weight: bold;
   border: 0em;
@@ -28,7 +28,17 @@
   margin-left: 1em;
 }
 
+.searchButton {
+  background-image: url(../../img/search-button.jpeg);
+  background-size: contain;
+}
+
 .searchButton:hover {
   background-color: #e2e2e2;
   color: black;
+}
+
+.randomButton {
+  background-image: url(../../img/random-button.png);
+  background-size: 75%;
 }

@@ -1,14 +1,18 @@
 import Card from "../Card/Card";
 import style from "./Cards.module.css";
 
-export default function Cards({ characters }) {
-  const onClose = () => window.alert("Emulamos que se cierra la card");
+export default function Cards({ characters, onClose }) {
+  if (characters.length === 0) {
+    return <div className={style.banner}></div>;
+  }
+
   return (
     <div className={style.container}>
       {characters.map(({ id, name, species, gender, image }) => {
         return (
           <Card
             key={id}
+            id={id}
             name={name}
             species={species}
             gender={gender}

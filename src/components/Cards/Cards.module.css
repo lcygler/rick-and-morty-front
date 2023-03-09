@@ -3,10 +3,38 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: rgba(57, 62, 70, 0.9); /* #393e46 */
+  background-color: rgba(34, 40, 49, 0.75); /* #222831 */
   padding: 2em;
   width: 80%;
-  margin: auto;
+  margin-top: 3.5em;
   border-radius: 50px;
   box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../../img/banner.png);
+  border: none;
+  padding: 2em;
+  width: 100vh;
+  height: 200px;
+  /* margin-top: 150px; */
+  /* margin-top: calc(100vh - 50em); */
+  position: fixed;
+  top: 200px;
+}
+
+@media screen and (max-width: 768px) {
+  .banner {
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }

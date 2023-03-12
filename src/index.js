@@ -5,8 +5,8 @@ import App from "./App";
 import "./index.css";
 
 ReactDOM.render(
-  <BrowserRouter basename="/rick-and-morty">
+  <HashRouter basename="/rick-and-morty">
     <App />
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById("root")
 );

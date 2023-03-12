@@ -8,12 +8,6 @@ import Error from "./components/Error/Error";
 import Nav from "./components/Nav/Nav.jsx";
 
 function App() {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    navigate("/home");
-  }, []);
-
   const [characters, setCharacters] = useState([]);
 
   const onSearch = (id) => {
@@ -48,22 +42,20 @@ function App() {
   };
 
   return (
-    <HashRouter>
-      <div className={style.background}>
-        <Nav onSearch={onSearch} />
-        <div className={style.app}>
-          <Routes>
-            <Route
-              path="/home"
-              element={<Cards characters={characters} onClose={onClose} />}
-            />
-            <Route path="/about" element={<About />} />
-            <Route path="/detail/:detailId" element={<Detail />} />
-            <Route path="*" element={<Error />} />
-          </Routes>
-        </div>
+    <div className={style.background}>
+      <Nav onSearch={onSearch} />
+      <div className={style.app}>
+        <Routes>
+          <Route
+            path="/home"
+            element={<Cards characters={characters} onClose={onClose} />}
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/detail/:detailId" element={<Detail />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
       </div>
-    </HashRouter>
+    </div>
   );
 }
 

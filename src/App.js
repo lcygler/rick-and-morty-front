@@ -8,7 +8,11 @@ import Error from "./components/Error/Error";
 import Nav from "./components/Nav/Nav.jsx";
 
 function App() {
-  useNavigate("/home");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("/home");
+  }, []);
 
   const [characters, setCharacters] = useState([]);
 

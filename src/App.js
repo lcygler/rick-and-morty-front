@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import style from "./App.module.css";
 import About from "./components/About/About";
 import Cards from "./components/Cards/Cards.jsx";
@@ -54,10 +54,6 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/detail/:detailId" element={<Detail />} />
-          <Route
-            path="/rick-and-morty"
-            element={<Navigate to="/home" replace />}
-          />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

@@ -1,14 +1,14 @@
 .background {
-  background-image: url(./img/background.png);
   background-attachment: fixed;
+  background-image: url(./img/background.png);
+  background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center bottom;
   min-height: 100vh;
 }
 
 .app {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 }

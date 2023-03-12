@@ -1,30 +1,30 @@
 .container {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
 }
 
 .searchInput {
   background-color: #eeeeee;
   border: 0px;
   border-radius: 15px 15px 15px 15px;
-  width: 20em;
-  height: 2.25em;
   cursor: text;
+  height: 2.25em;
   padding: 0 10px;
+  width: 20em;
 }
 
 .searchButton,
 .randomButton {
-  background-repeat: no-repeat;
   background-position: center;
-  font-weight: bold;
+  background-repeat: no-repeat;
   border: 1px solid transparent;
   border-radius: 15px 15px 15px 15px;
-  width: 2.25em;
-  height: 2.25em;
   cursor: pointer;
+  font-weight: bold;
+  height: 2.25em;
   margin-left: 1em;
+  width: 2.25em;
 }
 
 .searchButton:hover,

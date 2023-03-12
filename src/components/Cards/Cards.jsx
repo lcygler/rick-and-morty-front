@@ -29,8 +29,8 @@ const Cards = (props) => {
           );
         })}
       </div>
-      <div className={style.clearButtonContainer}>
-        <button className={style.clearButton} onClick={clearAll}>
+      <div className={style.clearAllContainer}>
+        <button className={style.clearAllButton} onClick={clearAll}>
           Clear All
         </button>
       </div>

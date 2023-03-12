@@ -2,15 +2,14 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-right: 2em;
 }
 
 .searchInput {
   background-color: #eeeeee;
   border: 0px;
   border-radius: 15px 15px 15px 15px;
-  width: 15em;
-  height: 2em;
+  width: 20em;
+  height: 2.25em;
   cursor: text;
   padding: 0 10px;
 }
@@ -20,22 +19,23 @@
   background-repeat: no-repeat;
   background-position: center;
   font-weight: bold;
-  border: 0em;
+  border: 1px solid transparent;
   border-radius: 15px 15px 15px 15px;
-  width: 2em;
-  height: 2em;
+  width: 2.25em;
+  height: 2.25em;
   cursor: pointer;
   margin-left: 1em;
+}
+
+.searchButton:hover,
+.randomButton:hover {
+  border: 1px solid #e2e2e2;
+  color: black;
 }
 
 .searchButton {
   background-image: url(../../img/search-button.jpeg);
   background-size: contain;
-}
-
-.searchButton:hover {
-  background-color: #e2e2e2;
-  color: black;
 }
 
 .randomButton {

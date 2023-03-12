@@ -1,26 +1,41 @@
 import Card from "../Card/Card";
 import style from "./Cards.module.css";
 
-export default function Cards({ characters, onClose }) {
+const Cards = (props) => {
+  const { characters, onClose } = props;
+
+  const clearAll = () => {
+    onClose(null);
+  };
+
   if (characters.length === 0) {
     return <div className={style.banner}></div>;
   }
 
   return (
     <div className={style.container}>
-      {characters.map(({ id, name, species, gender, image }) => {
-        return (
-          <Card
-            key={id}
-            id={id}
-            name={name}
-            species={species}
-            gender={gender}
-            image={image}
-            onClose={onClose}
-          />
-        );
-      })}
+      <div className={style.cardsContainer}>
+        {characters.map(({ id, name, species, gender, image }) => {
+          return (
+            <Card
+              key={id}
+              id={id}
+              name={name}
+              species={species}
+              gender={gender}
+              image={image}
+              onClose={onClose}
+            />
+          );
+        })}
+      </div>
+      <div className={style.clearButtonContainer}>
+        <button className={style.clearButton} onClick={clearAll}>
+          Clear All
+        </button>
+      </div>
     </div>
   );
-}
+};
+
+export default Cards;

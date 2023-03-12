@@ -1,6 +1,4 @@
-.app {
-  display: flex;
-  flex-direction: column;
+.background {
   background-image: url(./img/background.png);
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -9,23 +7,8 @@
   min-height: 100vh;
 }
 
-.nav {
-  background-color: #003171;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding: 1em;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-}
-
-.cards {
+.app {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  /* height: calc(100vh - 5em); */
 }

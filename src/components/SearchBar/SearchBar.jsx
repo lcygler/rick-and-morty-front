@@ -1,7 +1,8 @@
-import style from "./SearchBar.module.css";
 import { useState } from "react";
+import style from "./SearchBar.module.css";
 
-export default function SearchBar({ onSearch }) {
+const SearchBar = (props) => {
+  const { onSearch } = props;
   const [id, setId] = useState("");
 
   const handleRandomClick = () => {
@@ -35,4 +36,6 @@ export default function SearchBar({ onSearch }) {
       ></button>
     </div>
   );
-}
+};
+
+export default SearchBar;

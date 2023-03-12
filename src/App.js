@@ -1,16 +1,24 @@
-import "./App.module.css";
-import style from "./App.module.css";
-import Nav from "./components/Nav/Nav.jsx";
-import Cards from "./components/Cards/Cards.jsx";
 import { useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import style from "./App.module.css";
+import About from "./components/About/About";
+import Cards from "./components/Cards/Cards.jsx";
+import Detail from "./components/Detail/Detail";
+import Error from "./components/Error/Error";
+import Nav from "./components/Nav/Nav.jsx";
 
 function App() {
+  useNavigate("/home");
+
   const [characters, setCharacters] = useState([]);
 
   const onSearch = (id) => {
     if (isNaN(id) || id < 1 || id > 826) {
-      window.alert("Invalid ID");
-      return;
+      return window.alert("Invalid ID");
+    }
+
+    if (characters.find((character) => character.id === id)) {
+      return window.alert("Duplicate character");
     }
 
     const BASE_URL = "https://be-a-rym.up.railway.app/api";
@@ -19,29 +27,35 @@ function App() {
     fetch(`${BASE_URL}/character/${id}?key=${KEY}`)
       .then((response) => response.json())
       .then((data) => {
-        if (
-          data.name &&
-          !characters.find((character) => character.id === data.id)
-        ) {
+        if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
         } else {
-          window.alert("Duplicate character");
+          window.alert("Unknown error");
         }
       });
   };
 
   const onClose = (id) => {
-    setCharacters(characters.filter((character) => character.id !== id));
+    if (id === null) {
+      setCharacters([]);
+    } else {
+      setCharacters(characters.filter((character) => character.id !== id));
+    }
   };
 
   return (
-    <div className={style.app}>
-      <div className={style.nav}>
-        <Nav onSearch={onSearch} />
-      </div>
-
-      <div className={style.cards}>
-        <Cards characters={characters} onClose={onClose} />
+    <div className={style.background}>
+      <Nav onSearch={onSearch} />
+      <div className={style.app}>
+        <Routes>
+          <Route
+            path="/home"
+            element={<Cards characters={characters} onClose={onClose} />}
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/detail/:detailId" element={<Detail />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
       </div>
     </div>
   );

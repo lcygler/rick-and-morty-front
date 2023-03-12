@@ -1,16 +1,19 @@
-import { useState } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import style from "./App.module.css";
 import About from "./components/About/About";
 import Cards from "./components/Cards/Cards.jsx";
 import Detail from "./components/Detail/Detail";
 import Error from "./components/Error/Error";
+import Form from "./components/Form/Form";
 import Nav from "./components/Nav/Nav.jsx";
 
 function App() {
-  useNavigate("/home");
-
   const [characters, setCharacters] = useState([]);
+  const [access, setAccess] = useState(false);
+  const navigate = useNavigate();
+  const username = "test@gmail.com";
+  const password = "123456";
 
   const onSearch = (id) => {
     if (isNaN(id) || id < 1 || id > 826) {
@@ -43,9 +46,29 @@ function App() {
     }
   };
 
+  const location = useLocation();
+
+  const login = (userData) => {
+    if (userData.password === password && userData.username === username) {
+      setAccess(true);
+      navigate("/home");
+    }
+  };
+
+  useEffect(() => {
+    if (!access) {
+      navigate("/");
+    }
+  }, [access, navigate]);
+
+  const logout = () => {
+    setAccess(false);
+    navigate("/");
+  };
+
   return (
     <div className={style.background}>
-      <Nav onSearch={onSearch} />
+      {location.pathname !== "/" && <Nav onSearch={onSearch} logout={logout} />}
       <div className={style.app}>
         <Routes>
           <Route
@@ -54,7 +77,7 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/detail/:detailId" element={<Detail />} />
-          <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/" element={<Form login={login} />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

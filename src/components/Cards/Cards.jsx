@@ -5,7 +5,9 @@ const Cards = (props) => {
   const { characters, onClose } = props;
 
   const clearAll = () => {
-    onClose(null);
+    if (window.confirm("Are you sure you want to clear all characters?")) {
+      onClose(null);
+    }
   };
 
   if (characters.length === 0) {

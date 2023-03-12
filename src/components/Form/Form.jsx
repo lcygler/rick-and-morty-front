@@ -1,23 +1,17 @@
 import { useState } from "react";
 import style from "./Form.module.css";
+import { validatePassword, validateUsername } from "./validation";
 
-const validate = (form, setErrors, errors) => {
-  if (!form.email) setErrors({ ...errors, email: "Email vacío" });
-  else {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3})+$/.test(form.email))
-      setErrors({ ...errors, email: "" });
-    else setErrors({ ...errors, email: "Email inválido" });
-  }
-};
+const Form = (props) => {
+  const { login } = props;
 
-const Form = () => {
   const [form, setForm] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
   const [errors, setErrors] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
@@ -26,37 +20,62 @@ const Form = () => {
     const value = event.target.value;
 
     setForm({ ...form, [property]: value });
-    validate({ ...form, [property]: value }, setErrors, errors);
+
+    if (property === "username") {
+      setErrors({ ...errors, username: validateUsername(value) });
+    } else {
+      setErrors({ ...errors, password: validatePassword(value) });
+    }
   };
 
-  const submitHandler = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    alert("Login exitoso");
+    login(form);
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div>
-        <label htmlFor="username">Email:</label>
+    <form onSubmit={handleSubmit} className={style.form}>
+      <div className={style.usernameContainer}>
+        <label htmlFor="username" className={style.label}>
+          Username:
+        </label>
         <input
           type="text"
-          name="email"
-          value={form.email}
+          name="username"
+          value={form.username}
           onChange={handleChange}
-          className={errors.email ? style.error : style.success}
+          className={style.input}
+          title="test@gmail.com"
         />
-        <span>{errors.email}</span>
+        <div className={style.errorContainer}>
+          <span className={errors.username ? style.error : style.success}>
+            {errors.username}
+          </span>
+        </div>
       </div>
-      <div>
-        <label htmlFor="password">Password:</label>
+      <div className={style.passwordContainer}>
+        <label htmlFor="password" className={style.label}>
+          Password:
+        </label>
         <input
-          type="text"
+          type="password"
           name="password"
           value={form.password}
           onChange={handleChange}
+          className={style.input}
+          title="123456"
         />
+        <div className={style.errorContainer}>
+          <span className={errors.password ? style.error : style.success}>
+            {errors.password}
+          </span>
+        </div>
       </div>
-      <button type="submit">Login</button>
+      <div className={style.loginButtonContainer}>
+        <button type="submit" className={style.loginButton}>
+          Login
+        </button>
+      </div>
     </form>
   );
 };

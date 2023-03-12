@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { HashRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import style from "./App.module.css";
 import About from "./components/About/About";
 import Cards from "./components/Cards/Cards.jsx";

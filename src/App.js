@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { HashRouter, Route, Routes, useNavigate } from "react-router-dom";
 import style from "./App.module.css";
 import About from "./components/About/About";
 import Cards from "./components/Cards/Cards.jsx";
@@ -48,20 +48,22 @@ function App() {
   };
 
   return (
-    <div className={style.background}>
-      <Nav onSearch={onSearch} />
-      <div className={style.app}>
-        <Routes>
-          <Route
-            path="/home"
-            element={<Cards characters={characters} onClose={onClose} />}
-          />
-          <Route path="/about" element={<About />} />
-          <Route path="/detail/:detailId" element={<Detail />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
+    <HashRouter>
+      <div className={style.background}>
+        <Nav onSearch={onSearch} />
+        <div className={style.app}>
+          <Routes>
+            <Route
+              path="/home"
+              element={<Cards characters={characters} onClose={onClose} />}
+            />
+            <Route path="/about" element={<About />} />
+            <Route path="/detail/:detailId" element={<Detail />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </HashRouter>
   );
 }
 

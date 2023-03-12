@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import style from "./App.module.css";
 import About from "./components/About/About";
 import Cards from "./components/Cards/Cards.jsx";
@@ -8,6 +8,8 @@ import Error from "./components/Error/Error";
 import Nav from "./components/Nav/Nav.jsx";
 
 function App() {
+  useNavigate("/home");
+
   const [characters, setCharacters] = useState([]);
 
   const onSearch = (id) => {
@@ -52,6 +54,7 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/detail/:detailId" element={<Detail />} />
+          <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

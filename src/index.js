@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 
 ReactDOM.render(
-  <HashRouter basename="/rick-and-morty">
+  <BrowserRouter basename="/rick-and-morty">
     <App />
-  </HashRouter>,
+  </BrowserRouter>,
   document.getElementById("root")
 );

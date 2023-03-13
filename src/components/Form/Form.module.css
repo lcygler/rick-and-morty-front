@@ -66,3 +66,32 @@
   color: red;
   white-space: pre-line;
 }
+
+@media only screen and (max-width: 768px) {
+  .form {
+    margin: 0 1em;
+    margin-top: 4em;
+    max-width: 500px;
+    width: 80%;
+  }
+
+  .usernameContainer {
+    margin-right: 1em;
+    padding: 0em;
+  }
+
+  .passwordContainer {
+    margin-right: 1em;
+    padding: 0em;
+  }
+
+  .input {
+    margin-top: 1em;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .errorContainer {
+    margin-bottom: 1em;
+  }
+}

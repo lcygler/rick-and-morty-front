@@ -2,10 +2,8 @@ import { useState } from "react";
 import style from "./Form.module.css";
 import { validatePassword, validateUsername } from "./validation";
 
-const Form = (props) => {
-  const { login } = props;
-
-  const [form, setForm] = useState({
+const Form = ({ login }) => {
+  const [userData, setUserData] = useState({
     username: "",
     password: "",
   });
@@ -15,11 +13,11 @@ const Form = (props) => {
     password: "",
   });
 
-  const handleChange = (event) => {
+  const handleInputChange = (event) => {
     const property = event.target.name;
     const value = event.target.value;
 
-    setForm({ ...form, [property]: value });
+    setUserData({ ...userData, [property]: value });
 
     if (property === "username") {
       setErrors({ ...errors, username: validateUsername(value) });
@@ -30,7 +28,7 @@ const Form = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    login(form);
+    login(userData);
   };
 
   return (
@@ -42,10 +40,10 @@ const Form = (props) => {
         <input
           type="text"
           name="username"
-          value={form.username}
-          onChange={handleChange}
+          value={userData.username}
+          onChange={handleInputChange}
           className={style.input}
-          title="test@gmail.com"
+          placeholder="test@gmail.com"
         />
         <div className={style.errorContainer}>
           <span className={errors.username ? style.error : style.success}>
@@ -60,10 +58,10 @@ const Form = (props) => {
         <input
           type="password"
           name="password"
-          value={form.password}
-          onChange={handleChange}
+          value={userData.password}
+          onChange={handleInputChange}
           className={style.input}
-          title="123456"
+          placeholder="123456"
         />
         <div className={style.errorContainer}>
           <span className={errors.password ? style.error : style.success}>

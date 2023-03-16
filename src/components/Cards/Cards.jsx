@@ -1,9 +1,7 @@
 import Card from "../Card/Card";
 import style from "./Cards.module.css";
 
-const Cards = (props) => {
-  const { characters, onClose } = props;
-
+const Cards = ({ characters, onClose }) => {
   const clearAll = () => {
     if (window.confirm("Are you sure you want to clear all characters?")) {
       onClose(null);

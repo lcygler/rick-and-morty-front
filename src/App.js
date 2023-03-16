@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import style from "./App.module.css";
-import About from "./components/About/About";
+import About from "./components/About/About.jsx";
 import Cards from "./components/Cards/Cards.jsx";
-import Detail from "./components/Detail/Detail";
-import Error from "./components/Error/Error";
-import Form from "./components/Form/Form";
+import Detail from "./components/Detail/Detail.jsx";
+import Error from "./components/Error/Error.jsx";
+import Form from "./components/Form/Form.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const username = "test@gmail.com";
   const password = "123456";
 
@@ -46,13 +47,16 @@ function App() {
     }
   };
 
-  const location = useLocation();
-
   const login = (userData) => {
     if (userData.password === password && userData.username === username) {
       setAccess(true);
       navigate("/home");
     }
+  };
+
+  const logout = () => {
+    setAccess(false);
+    navigate("/");
   };
 
   useEffect(() => {
@@ -61,23 +65,18 @@ function App() {
     }
   }, [access, navigate]);
 
-  const logout = () => {
-    setAccess(false);
-    navigate("/");
-  };
-
   return (
     <div className={style.background}>
       {location.pathname !== "/" && <Nav onSearch={onSearch} logout={logout} />}
       <div className={style.app}>
         <Routes>
+          <Route path="/" element={<Form login={login} />} />
           <Route
             path="/home"
             element={<Cards characters={characters} onClose={onClose} />}
           />
           <Route path="/about" element={<About />} />
           <Route path="/detail/:detailId" element={<Detail />} />
-          <Route path="/" element={<Form login={login} />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

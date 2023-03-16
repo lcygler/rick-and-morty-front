@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import style from "./Nav.module.css";
 
-const Nav = (props) => {
-  const { onSearch, logout } = props;
+const Nav = ({ onSearch, logout }) => {
   return (
     <div className={style.container}>
       <div className={style.searchContainer}>

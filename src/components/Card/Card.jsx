@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 
-const Card = (props) => {
-  const { id, name, species, gender, image, onClose } = props;
+const Card = ({ id, name, species, gender, image, onClose }) => {
   return (
     <div className={style.cardContainer}>
       <button

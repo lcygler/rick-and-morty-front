@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { addFavorite, removeFavorite } from "../../redux/actions";
 import style from "./Card.module.css";
 
@@ -16,6 +16,7 @@ const Card = ({
   myFavorites,
 }) => {
   const [isFav, setIsFav] = useState(false);
+  const location = useLocation();
 
   const handleFavorite = () => {
     if (isFav) {
@@ -57,10 +58,12 @@ const Card = ({
           </button>
         )}
 
-        <button
-          className={style.closeButton}
-          onClick={() => onClose(id)}
-        ></button>
+        {location.pathname === "/home" && (
+          <button
+            className={style.closeButton}
+            onClick={() => onClose(id)}
+          ></button>
+        )}
       </div>
 
       <div className={style.imageContainer}>

@@ -40,10 +40,20 @@
 }
 
 @media screen and (max-width: 1120px) {
+  .linkContainer {
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .container {
     flex-direction: column;
     height: fit-content;
     padding-top: 1em;
+  }
+
+  .searchContainer {
+    width: 100%;
   }
 
   .linkContainer {
@@ -52,11 +62,6 @@
     justify-content: center;
     margin-bottom: 10px;
     margin-top: 10px;
-    position: relative;
-    width: 100%;
-  }
-
-  .searchContainer {
     width: 100%;
   }
 }

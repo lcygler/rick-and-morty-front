@@ -11,6 +11,15 @@
   z-index: 1;
 }
 
+.searchContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: center;
+  position: relative;
+}
+
 .linkContainer {
   display: flex;
   flex-direction: row;
@@ -30,16 +39,7 @@
   text-decoration: underline;
 }
 
-.searchContainer {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-  justify-content: center;
-  position: relative;
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1120px) {
   .container {
     flex-direction: column;
     height: fit-content;

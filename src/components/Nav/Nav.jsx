@@ -13,6 +13,9 @@ const Nav = ({ onSearch, logout }) => {
         <Link to="/home" className={style.link}>
           <span>Home</span>
         </Link>
+        <Link to="/favorites" className={style.link}>
+          <span>Favorites</span>
+        </Link>
         <Link to="/about" className={style.link}>
           <span>About</span>
         </Link>

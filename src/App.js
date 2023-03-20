@@ -5,6 +5,7 @@ import About from "./components/About/About.jsx";
 import Cards from "./components/Cards/Cards.jsx";
 import Detail from "./components/Detail/Detail.jsx";
 import Error from "./components/Error/Error.jsx";
+import Favorites from "./components/Favorites/Favorites.jsx";
 import Form from "./components/Form/Form.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 
@@ -75,6 +76,7 @@ function App() {
             path="/home"
             element={<Cards characters={characters} onClose={onClose} />}
           />
+          <Route path="/favorites" element={<Favorites />} />
           <Route path="/about" element={<About />} />
           <Route path="/detail/:detailId" element={<Detail />} />
           <Route path="*" element={<Error />} />

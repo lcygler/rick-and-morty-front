@@ -74,6 +74,7 @@
   font-weight: bold;
   left: 50%;
   margin: 0;
+  min-width: 2em;
   padding: 0.5em;
   position: absolute;
   text-align: center;

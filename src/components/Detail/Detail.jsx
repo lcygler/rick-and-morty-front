@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { BASE_URL, KEY } from "../../utils/consts";
 import style from "./Detail.module.css";
-import { BASE_URL, KEY } from "./utils/consts";
 
 const Detail = () => {
   const { detailId } = useParams();

@@ -18,29 +18,6 @@
   padding: 2em;
 }
 
-.clearAllContainer {
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-
-.clearAllButton {
-  background-color: #eeeeee;
-  border: 0px;
-  border-radius: 50px;
-  color: #222831;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  height: 50px;
-  width: 100px;
-}
-
-.clearAllButton:hover {
-  background-color: #e2e2e2;
-  color: red;
-  font-weight: bold;
-}
-
 .banner {
   align-items: center;
   background-image: url(../../img/banner.png);

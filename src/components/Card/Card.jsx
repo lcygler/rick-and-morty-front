@@ -13,7 +13,7 @@ const Card = ({
   onClose,
   addFavorite,
   removeFavorite,
-  myFavorites,
+  allCharacters,
 }) => {
   const [isFav, setIsFav] = useState(false);
   const location = useLocation();
@@ -38,12 +38,12 @@ const Card = ({
   };
 
   useEffect(() => {
-    myFavorites.forEach((fav) => {
+    allCharacters.forEach((fav) => {
       if (fav.id === id) {
         setIsFav(true);
       }
     });
-  }, [myFavorites, id]);
+  }, [allCharacters, id]);
 
   return (
     <div className={style.cardContainer}>
@@ -68,6 +68,7 @@ const Card = ({
 
       <div className={style.imageContainer}>
         <img className={style.image} src={image} alt="" />
+        <p className={style.id}>{id}</p>
         <Link to={`/detail/${id}`}>
           <p className={style.name}>{name}</p>
         </Link>
@@ -94,7 +95,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    myFavorites: state.myFavorites,
+    allCharacters: state.allCharacters,
   };
 };
 

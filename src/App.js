@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import style from "./App.module.css";
-import About from "./components/About/About.jsx";
-import Cards from "./components/Cards/Cards.jsx";
-import Detail from "./components/Detail/Detail.jsx";
-import Error from "./components/Error/Error.jsx";
-import Favorites from "./components/Favorites/Favorites.jsx";
-import Form from "./components/Form/Form.jsx";
-import Nav from "./components/Nav/Nav.jsx";
+import {
+  About,
+  Cards,
+  Detail,
+  Error,
+  Favorites,
+  Form,
+  Nav,
+} from "./components/index";
+import { BASE_URL, KEY, PASSWORD, USERNAME } from "./utils/consts";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
-  const navigate = useNavigate();
+
   const location = useLocation();
-  const username = "test@gmail.com";
-  const password = "123456";
+  const navigate = useNavigate();
 
   const onSearch = (id) => {
     if (isNaN(id) || id < 1 || id > 826) {
@@ -25,9 +27,6 @@ function App() {
     if (characters.find((character) => character.id === id)) {
       return window.alert("Duplicate character");
     }
-
-    const BASE_URL = "https://be-a-rym.up.railway.app/api";
-    const KEY = "3fa8a28b08d0.7e801b1fd26fde418200";
 
     fetch(`${BASE_URL}/character/${id}?key=${KEY}`)
       .then((response) => response.json())
@@ -49,7 +48,7 @@ function App() {
   };
 
   const login = (userData) => {
-    if (userData.password === password && userData.username === username) {
+    if (userData.username === USERNAME && userData.password === PASSWORD) {
       setAccess(true);
       navigate("/home");
     }

@@ -3,6 +3,7 @@ export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
 export const CLEAR_FAVORITE = "CLEAR_FAVORITE";
 export const FILTER = "FILTER";
 export const ORDER = "ORDER";
+export const RESET = "RESET";
 
 export const addFavorite = (character) => {
   return {
@@ -35,5 +36,11 @@ export const orderCards = (id) => {
   return {
     type: ORDER,
     payload: id,
+  };
+};
+
+export const resetCards = () => {
+  return {
+    type: RESET,
   };
 };

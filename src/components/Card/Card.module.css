@@ -66,6 +66,21 @@
   max-width: 100%;
 }
 
+.id {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  color: rgba(255, 255, 255, 1);
+  font-size: large;
+  font-weight: bold;
+  left: 50%;
+  margin: 0;
+  padding: 0.5em;
+  position: absolute;
+  text-align: center;
+  top: 0.75em;
+  transform: translateX(-50%);
+}
+
 .name {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 25px;

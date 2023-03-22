@@ -1,4 +1,5 @@
-import Card from "../Card/Card";
+// import Card from "../Card/Card";
+import { Button, Card } from "../index";
 import style from "./Cards.module.css";
 
 const Cards = ({ characters, onClose }) => {
@@ -31,11 +32,8 @@ const Cards = ({ characters, onClose }) => {
           );
         })}
       </div>
-      <div className={style.clearAllContainer}>
-        <button className={style.clearAllButton} onClick={clearAll}>
-          Clear All
-        </button>
-      </div>
+
+      <Button onClick={clearAll} text="Clear All" />
     </div>
   );
 };

@@ -11,8 +11,10 @@ import style from "./Favorites.module.css";
 
 const Favorites = () => {
   const dispatch = useDispatch();
+
   const filterSelect = useRef(null);
   const orderSelect = useRef(null);
+
   const myFavorites = useSelector((state) => state.myFavorites);
   const allCharacters = useSelector((state) => state.allCharacters);
 

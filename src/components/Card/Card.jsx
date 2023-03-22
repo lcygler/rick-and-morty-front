@@ -4,6 +4,24 @@ import { Link, useLocation } from "react-router-dom";
 import { addFavorite, removeFavorite } from "../../redux/actions";
 import style from "./Card.module.css";
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addFavorite: (character) => {
+      dispatch(addFavorite(character));
+    },
+
+    removeFavorite: (id) => {
+      dispatch(removeFavorite(id));
+    },
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    allCharacters: state.allCharacters,
+  };
+};
+
 const Card = ({
   id,
   name,
@@ -80,23 +98,6 @@ const Card = ({
       </div>
     </div>
   );
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addFavorite: (character) => {
-      dispatch(addFavorite(character));
-    },
-    removeFavorite: (id) => {
-      dispatch(removeFavorite(id));
-    },
-  };
-};
-
-const mapStateToProps = (state) => {
-  return {
-    allCharacters: state.allCharacters,
-  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

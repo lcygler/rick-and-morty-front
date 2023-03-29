@@ -19,6 +19,7 @@
 .filterLabel,
 .orderLabel {
   color: white;
+  font-size: 15px;
   margin: 0 1em;
 }
 
@@ -36,6 +37,7 @@
   border: 0px;
   border-radius: 50px;
   cursor: pointer;
+  font-family: "Open Sans", sans-serif;
   height: 2em;
   margin: 0 10px;
   margin-right: 1em;
@@ -73,7 +75,7 @@
 
 .text1 {
   color: white;
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-top: 3rem;
 }
 

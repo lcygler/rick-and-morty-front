@@ -24,6 +24,7 @@
 .input {
   border: 0px;
   border-radius: 50px;
+  font-family: "Open Sans", sans-serif;
   height: 2.5em;
   padding-left: 1em;
   padding-right: 1em;
@@ -41,6 +42,7 @@
   border-radius: 50px;
   color: #222831;
   cursor: pointer;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: bold;
   height: 3em;

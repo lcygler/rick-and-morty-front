@@ -13,15 +13,23 @@ const SearchBar = ({ onSearch }) => {
     setId(event.target.value);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      onSearch(id);
+      setId("");
+    }
+  };
+
   return (
     <div className={style.container}>
       <input
         className={style.searchInput}
         type="search"
-        placeholder="Search..."
+        placeholder="Search by ID..."
         value={id}
         onChange={handleChange}
-        title="Enter ID (1-826)"
+        onKeyDown={handleKeyPress}
+        title="1-826"
       />
       <button
         className={style.searchButton}

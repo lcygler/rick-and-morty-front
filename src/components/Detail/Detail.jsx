@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { BASE_URL, KEY } from "../../utils/consts";
+import { BASE_URL } from "../../utils/consts";
 import style from "./Detail.module.css";
 
 const Detail = () => {
@@ -9,7 +9,7 @@ const Detail = () => {
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
-    axios(`${BASE_URL}/character/${detailId}?key=${KEY}`).then((response) => {
+    axios(`${BASE_URL}/character/${detailId}`).then((response) => {
       setCharacter(response.data);
     });
   }, [detailId]);
